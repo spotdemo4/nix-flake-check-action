@@ -37,4 +37,6 @@ runs:
                 echo "$log" >> "$GITHUB_STEP_SUMMARY"
                 echo "\`\`\`" >> "$GITHUB_STEP_SUMMARY"
             done <<< "$logs"
+
+            exit 1
         fi
