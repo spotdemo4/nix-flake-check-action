@@ -31,8 +31,8 @@ runs:
             echo "success=false" >> "$GITHUB_OUTPUT"
             logs=$(grep "nix log" check.log)
             while read n; do
-                echo "### $n" >> "$GITHUB_STEP_SUMMARY"
+                echo "### :x: $n" >> "$GITHUB_STEP_SUMMARY"
                 log=$(eval "$n")
-                echo "$log" >> "$GITHUB_STEP_SUMMARY"
+                echo "```$log```" >> "$GITHUB_STEP_SUMMARY"
             done <<< "$logs"
         fi
