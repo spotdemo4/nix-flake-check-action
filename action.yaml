@@ -29,13 +29,14 @@ runs:
             echo "success=true" >> "$GITHUB_OUTPUT"
         else
             echo "success=false" >> "$GITHUB_OUTPUT"
+            echo "### :x: \`nix flake check\` failed" >> "$GITHUB_STEP_SUMMARY"
             logs=$(grep "nix log" check.log)
             while read n; do
-                echo "### :x: $n" >> "$GITHUB_STEP_SUMMARY"
                 log=$(eval "$n")
                 echo "\`\`\`" >> "$GITHUB_STEP_SUMMARY"
                 echo "$log" >> "$GITHUB_STEP_SUMMARY"
                 echo "\`\`\`" >> "$GITHUB_STEP_SUMMARY"
+                echo "$n" >> "$GITHUB_STEP_SUMMARY"
             done <<< "$logs"
 
             exit 1
