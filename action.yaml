@@ -33,8 +33,8 @@ runs:
             while read n; do
                 echo "### :x: $n" >> "$GITHUB_STEP_SUMMARY"
                 log=$(eval "$n")
-                echo "```" >> "$GITHUB_STEP_SUMMARY"
+                echo "\`\`\`" >> "$GITHUB_STEP_SUMMARY"
                 echo "$log" >> "$GITHUB_STEP_SUMMARY"
-                echo "```" >> "$GITHUB_STEP_SUMMARY"
+                echo "\`\`\`" >> "$GITHUB_STEP_SUMMARY"
             done <<< "$logs"
         fi
