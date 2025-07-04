@@ -35,6 +35,7 @@ runs:
                 log=$(eval "$n")
                 echo "\`\`\`" >> "$GITHUB_STEP_SUMMARY"
                 echo "$log" >> "$GITHUB_STEP_SUMMARY"
+                echo "$log"
                 echo "\`\`\`" >> "$GITHUB_STEP_SUMMARY"
                 echo "$n" >> "$GITHUB_STEP_SUMMARY"
             done <<< "$logs"
